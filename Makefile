@@ -1,4 +1,3 @@
-
 projectPath = $(shell pwd)
 
 all: build
