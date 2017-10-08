@@ -16,6 +16,7 @@ func (l *Lumberjack) eventloop() error {
 	return nil
 }
 
+//Init - Initializes a new Lumberjack and returns it.
 func (l *Lumberjack) Init() (Person, error) {
 	l.Name = "Lumberjack"
 	go l.eventloop()
