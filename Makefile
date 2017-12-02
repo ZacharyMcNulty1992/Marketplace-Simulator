@@ -1,4 +1,5 @@
 projectPath = $(shell pwd)
+export GOPATH=$(PWD)
 
 all: build
 

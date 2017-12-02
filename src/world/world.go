@@ -18,7 +18,7 @@ type EventDispatcher struct {
 
 //Universe - The universal event handler, handles/coordinates time based events.
 type Universe struct {
-	EventChannel EventDispatcher
+	EventChannel *EventDispatcher
 	//TODO: out going event stream may be needed.
 }
 
