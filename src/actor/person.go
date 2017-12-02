@@ -9,6 +9,7 @@ type event struct {
 	Message string //message to the reciever of the event, may be nil
 }
 
+//Person - interface to represent a generic person. All people inherit this class
 type Person interface {
 	//Variables that define a person in the context of the simulator.
 	//Name string
@@ -28,11 +29,13 @@ type Person interface {
 	Init() (Person, error)
 }
 
-func (p Person) NewPerson(Type string) {
-
+//NewPerson - creates a new person based on a passed in type
+func NewPerson(Type string) Person {
+	var p Person
+	var err error
 	//init the type of the person that is created.
 	if Type == "Merchant" {
-		p, err := new(Merchant).Init()
+		p, err = new(Merchant).Init()
 		if err != nil {
 			log.Fatalf("Could not create Merchant: %s", err.Error())
 		}

@@ -12,5 +12,5 @@ func main() {
 	//TODO: change this so that it is creating a lot of new people.
 	person := actor.NewPerson("merchant")
 	//TODO: have the main thread be the thread that controls world events.
-
+	person.Init()
 }
