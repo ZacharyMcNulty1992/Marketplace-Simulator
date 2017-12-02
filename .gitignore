@@ -1,5 +1,7 @@
 .vscode/settings.json
+pkg
 pkg/*
+bin
 bin/*
 azul3d.org
 azul3d.org/*
