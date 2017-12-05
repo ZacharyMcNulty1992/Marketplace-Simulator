@@ -1,4 +1,6 @@
 .vscode/settings.json
+.go-deps
+.sys-deps
 pkg
 pkg/*
 bin
