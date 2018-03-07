@@ -1,18 +1,25 @@
 projectPath = $(shell pwd)
 export GOPATH=$(PWD)
+APP_NAME = app
 
 all: build
 
 build: | .sys-deps .go-deps
-	go build -o $(projectPath)/bin/app $(projectPath)/src/app/app.go
+	go build -d -ldflags "-s" -o $(projectPath)/bin/$(APP_NAME)
 
 clean:
 	rm -rf $(projectPath)/bin
 
 .go-deps:
-	go get -u -v azul3d.org/engine/gfx 
+	go get -u github.com/g3n/engine/...
 	touch .go-deps
 
 .sys-deps:
-	sudo apt-get install build-essential git mesa-common-dev libx11-dev libx11-xcb-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-xkb-dev libfreetype6-dev libbz2-dev libxxf86vm-dev libgl1-mesa-dev libxrandr-dev libxcursor-dev libxi-dev
+	sudo apt-get install libopenal1 libopenal1 libgl1-mesa-dev xorg-dev
 	touch .sys-deps
+
+.PHONY clean:
+	rm -rf pkg/*
+	rm -rf .sys-deps
+	rm -rf .go-deps
+	rm -rf ./bin/app
